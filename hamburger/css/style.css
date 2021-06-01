@@ -1,0 +1,292 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap");
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.container {
+  max-width: 1140px;
+  margin: 0 auto 100px auto;
+}
+
+.hamburger__size {
+  padding: 40px;
+  border: 2px solid #a88e76;
+}
+.hamburger__legend {
+  font-size: 1.7em;
+  font-weight: 900;
+  padding: 0 10px;
+  color: #664d35;
+}
+.hamburger__size-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -30px;
+}
+.hamburger__size-radio {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+.hamburger__size-radio:hover {
+  cursor: pointer;
+}
+.hamburger__cheked-block {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: 2px solid #f5be87;
+  border-radius: 5px;
+  z-index: 0;
+}
+.hamburger__size-radio:hover + .hamburger__cheked-block {
+  display: block;
+  border: 2px solid #db7e21;
+}
+.hamburger__size-radio:checked + .hamburger__cheked-block {
+  display: block;
+  background: rgba(219, 126, 33, 0.1);
+}
+.hamburger__block {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 30px;
+  padding: 20px;
+  width: 50%;
+}
+.hamburger__block:hover {
+  cursor: pointer;
+}
+.hamburger__block-title {
+  font-size: 1.2em;
+  font-weight: 900;
+}
+.hamburger__img-wrapper {
+  height: auto;
+}
+.hamburger__img {
+  margin: 1em 0 0 0;
+}
+.hamburger__img--little {
+  width: 270px;
+}
+.hamburger__img--big {
+  width: 400px;
+}
+.hamburger__info {
+  margin: 1em 0 0 0;
+}
+.hamburger__info li:first-child {
+  margin: 0 0 0.5em 0;
+}
+.hamburger__info-value {
+  font-weight: 900;
+}
+.hamburger__size .hamburger__choise-filling {
+  margin: 1em 0;
+}
+.hamburger__choise-filling-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 0 2.2em 0;
+}
+.hamburger__filling-img-wrapper {
+  max-width: 200px;
+}
+.hamburger__choise-filling-img {
+  width: 100%;
+}
+.hamburger__filling-name {
+  font-size: 1.2em;
+  font-weight: 900;
+}
+.hamburger__filling-calories {
+  color: #db7e21;
+}
+.hamburger__filling-price {
+  font-size: 1.2em;
+  font-weight: 900;
+}
+.hamburger__filling-checkbox {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.hamburger__filling-checkbox:hover {
+  cursor: pointer;
+}
+.hamburger__filling-checkbox::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+  background: #fff;
+  border: 2px solid #db7e21;
+  border-radius: 6px;
+}
+.hamburger__filling-checkbox:checked::before {
+  content: "✔";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.5em;
+  color: #fff;
+  background: #422405;
+}
+.hamburger__calculate-button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  margin: 1em 0 0 0;
+  width: 240px;
+  height: 55px;
+  border: none;
+  background: #db7e21;
+  border-radius: 6px;
+}
+.hamburger__calculate-button:hover {
+  cursor: pointer;
+  background: #b86818;
+}
+
+.result {
+  margin: 2em 0 0 0;
+}
+.result__item {
+  margin: 0 0 1.5em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.result__label {
+  font-weight: 900;
+}
+.result__value {
+  margin: 0 0 0 1.5em;
+  font-size: 2em;
+  font-weight: 900;
+  color: #80470e;
+}

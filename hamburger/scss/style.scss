@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto 100px auto;
+}
+
+
+.hamburger {
+	&__size {
+        padding: 40px;
+        border: 2px solid #a88e76;
+    }
+
+	&__legend {
+        font-size: 1.7em;
+        font-weight: 900;
+        padding: 0 10px;
+        color: #664d35;
+    }
+	
+    &__size-wrapper {
+        display: flex;
+        margin: 0 -30px;
+    }
+
+    &__size-radio {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    &__size-radio:hover {
+        cursor: pointer;
+    }
+
+    
+
+    &__cheked-block {
+        position: absolute;
+        display: none;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border: 2px solid #f5be87;
+        border-radius: 5px;
+        z-index: 0;
+    }
+
+    &__size-radio:hover + &__cheked-block {
+        display: block;
+        border: 2px solid #db7e21;
+    }
+
+    &__size-radio:checked + &__cheked-block {
+        display: block;
+        background: rgba(219, 126, 33, 0.1)
+    }
+
+    // &__size-radio::before {
+    //     content: "";
+    //     display: block;
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     background: #000;
+    // }
+
+	&__block {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 30px;
+        padding: 20px;
+        width: 50%;
+
+		&--little { }
+		&--big { }
+	}
+
+    &__block:hover {
+        cursor: pointer;
+    }
+
+    &__block-title {
+        font-size: 1.2em;
+        font-weight: 900;
+    }
+
+    &__img-wrapper {
+        height: auto;
+    }
+
+    &__img {
+        margin: 1em 0 0 0;
+    }
+
+    &__img--little {
+        width: 270px;
+    }
+
+    &__img--big {
+        width: 400px;
+    }
+
+	&__info {
+        margin: 1em 0 0 0;
+
+        li:first-child {
+            margin: 0 0 0.5em 0;
+        }
+
+        &-label {
+        
+        }
+
+        &-value {
+            font-weight: 900;
+        }
+    }
+
+    &__size &__choise-filling {
+        margin: 1em 0;
+    }
+
+    &__choise-filling-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 2.2em 0;
+    }
+
+    &__filling-img-wrapper {
+        max-width: 200px;
+    }
+
+    &__choise-filling-img {
+        width: 100%;
+    }
+
+    &__filling-name {
+        font-size: 1.2em;
+        font-weight: 900;
+    }
+
+    &__filling-calories {
+        color:#db7e21;
+    }
+
+    &__filling-price {
+        font-size: 1.2em;
+        font-weight: 900;
+    }
+
+    &__filling-checkbox {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 16px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    &__filling-checkbox:hover {
+        cursor: pointer;
+    }
+
+    &__filling-checkbox::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        display: block;
+        left: 0;
+        top: 0;
+        background: #fff;
+        border: 2px solid #db7e21;
+        border-radius: 6px;
+    }
+
+    &__filling-checkbox:checked::before {
+        content: '\2714';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        color: #fff;
+        background: #422405;
+        
+    }
+
+    &__calculate-button {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: #fff;
+        margin: 1em 0 0 0;
+        width: 240px;
+        height: 55px;
+        border: none;
+        background: #db7e21;
+        border-radius: 6px;
+    }
+    
+    &__calculate-button:hover {
+        cursor: pointer;
+        background: #b86818;
+    }
+}
+
+
+.result {
+    margin: 2em 0 0 0;
+
+	&__item {
+        margin: 0 0 1.5em 0;
+        display: flex;
+        align-items: center;
+    }
+	&__label {
+        font-weight: 900;
+    }
+	&__value {
+        margin: 0 0 0 1.5em;
+        font-size: 2em;
+        font-weight: 900;
+        color: #80470e;
+
+		&--total-price {
+
+        }
+		&--total-calory {
+
+        }
+	}
+}
