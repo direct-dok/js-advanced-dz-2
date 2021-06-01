@@ -211,6 +211,10 @@ select {
 .hamburger__filling-calories {
   color: #db7e21;
 }
+.hamburger__filling-price {
+  font-size: 1.2em;
+  font-weight: 900;
+}
 .hamburger__filling-checkbox {
   position: relative;
   width: 40px;
